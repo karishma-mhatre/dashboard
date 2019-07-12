@@ -1,0 +1,28 @@
+@import '../../styles/varaibles.scss';
+
+.video-player {
+    display: flex;
+    padding: 20px;
+    position: relative;
+    background-color: $color-light-grey;
+
+    &-close {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+    }
+
+    &-video {
+        width: 60%;
+
+        video {
+            width: 100%;
+        }
+    }
+
+    &-video-info {
+        color: $color-dark-grey;
+        padding: 10px;
+        width: 40%
+    }
+}

@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/common.scss';
+import Dashboard from './Components/Dasboard';
+import { HashRouter as Router, Route } from "react-router-dom";
+import Registration from './Components/Registration';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      isRegistered: false
+    }
+  }
+
+  register = () => {
+    this.setState({isRegistered: true})
+    window.location.hash = "/dashboard"
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Route exact path="/dashboard" render={(props) => (
+            <Dashboard {...props} {...this.state.isRegistered}></Dashboard>)}></Route>
+          <Route exact path="/" render={(props) => (
+            <Registration {...props} {...this.state.isRegistered} register={this.register}></Registration>)}></Route>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

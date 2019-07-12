@@ -1,0 +1,20 @@
+@import './varaibles.scss';
+
+.widget {
+    padding: 15px;
+    border: 1px solid $color-dark-grey;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #58595ba1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
