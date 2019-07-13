@@ -38,14 +38,13 @@ class Graph extends React.Component {
     render() {
         return (
             <div className="widget camera">
+                <div className="widget-title">Camera Feed</div>
+                <div className="widget-content">
                 {
                     this.state.src &&
                     <img src={this.state.src}></img>
                 }
-                {
-                    !this.state.src &&
-                    <div>Establishing connection.</div>
-                }
+                </div>
             </div>
         )
     }

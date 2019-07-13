@@ -14,6 +14,7 @@ class Registration extends React.Component {
 
     validateUserName = (userName) => {
         if(userName.length < 5 || userName.length > 10) {
+            this.setState({userNameError: "Username should contain at least 5 and at most 10 characters"})
             return false;
         }
 
@@ -83,15 +84,15 @@ class Registration extends React.Component {
                 <form onSubmit={(e) => {this.register(e)}}>
                     <div className="input-container">
                         <label className="input-label">Username</label>
-                        <input className="input" name="username" type="text" min={5} max={10} required></input>
+                        <input className="input" name="username" type="text" required></input>
                     </div>
                     <div className="input-container">
                         <label className="input-label">Email-id</label>
-                        <input className="input" name="email" type="email" min={5} max={10} required></input>
+                        <input className="input" name="email" type="email" required></input>
                     </div>
                     <div className="input-container">
                         <label className="input-label">Password</label>
-                        <input className="input" name="password" type="password" min={5} max={10} required></input>
+                        <input className="input" name="password" type="password" required></input>
                     </div>
                     <div className="btn-container">
                         <button className="btn" type="submit"> Register</button>

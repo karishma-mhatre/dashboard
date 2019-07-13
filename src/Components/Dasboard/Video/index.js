@@ -17,6 +17,8 @@ class Video extends React.Component {
 
     render() {
         return (<div className="widget video">
+            <div className="widget-title">Video</div>
+            <div className="widget-content">
             <button type="button" className="btn" onClick={this.toggleShowPlayer}>Play Video</button>
             {
                 this.state.showPlayer && 
@@ -26,6 +28,7 @@ class Video extends React.Component {
                                 closeModal={this.toggleShowPlayer}></VideoPlayer>
                 </Modal>
             }
+            </div>
         </div>)
     }
 }

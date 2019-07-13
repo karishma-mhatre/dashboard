@@ -24,14 +24,17 @@ class VideoStreamer extends React.Component {
     render() {
         return (
             <div className="widget video-streamer">
-                {
-                    this.state.error && 
-                    <div className="error-message">{this.state.error}</div>
-                }
-                {
-                    this.state.src &&
-                    <img src={this.state.src}></img>
-                }
+                <div className="widget-title">Streamer</div>
+                <div className="widget-content">
+                    {
+                        this.state.error &&
+                        <div className="error-message">{this.state.error}</div>
+                    }
+                    {
+                        this.state.src &&
+                        <img src={this.state.src}></img>
+                    }
+                </div>
             </div>
         )
     }

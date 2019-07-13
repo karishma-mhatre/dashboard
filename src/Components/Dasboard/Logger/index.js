@@ -43,6 +43,7 @@ class Logger extends React.Component {
     render() {
         return (
             <div className="widget logger">
+                <div className="widget-title">Logger</div>
                 {
                     this.state.logs.map((msg, index)=>(
                         <div className="logger-message" key={index}>{msg}</div>

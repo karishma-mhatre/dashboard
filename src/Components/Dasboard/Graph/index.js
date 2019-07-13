@@ -32,7 +32,15 @@ class Graph extends React.Component {
             duration: 0
         },
         maintainAspectRatio: false,
-        responseive: true
+        responseive: true,
+        layout: {
+            padding: {
+                left: 15,
+                right: 15,
+                top: 15,
+                bottom: 15
+            }
+        }
     });
 
 
@@ -82,8 +90,11 @@ class Graph extends React.Component {
         this.createGraphConfig(this.state.numbers);
         return (
             <div className="widget graph">
-                <Line data={this.config.data} width="100%" height="200" options={this.config.options}
+                <div className="widget-title">Line Graph</div>
+                <div>
+                     <Line data={this.config.data} height={200} options={this.config.options}
                     redraw></Line>
+                </div>
             </div>
         )
     }

@@ -1,10 +1,21 @@
 @import './varaibles.scss';
 
 .widget {
-    padding: 15px;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 0px 18px 0px $color-grey;
+
+    &-title {
+        background: $color-blue;
+        color: $color-white;
+        padding: 10px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    &-content {
+        padding: 10px;
+    }
 }
 
 .modal {
@@ -53,4 +64,9 @@
 .error-message {
     color: $color-red;
     font-size: $font-size-smallest;
+}
+
+.info-message {
+    color: $color-blue;
+    font-size: $font-size-smallest;   
 }
