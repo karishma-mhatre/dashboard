@@ -1,7 +1,9 @@
 .dashboard {
     display: grid;
   grid-template-areas:
-  "graph graph graph graph graph graph" "camera camera video video logger logger" "camera camera video video logger logger";
+  "graph graph graph graph graph graph" 
+  "camera camera video video logger logger" 
+  "camera camera streamer streamer logger logger";
   grid-gap: 10px;
   padding: 10px;
   height: 100%;

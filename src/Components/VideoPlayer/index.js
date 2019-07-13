@@ -21,7 +21,7 @@ class VideoPlayer extends React.Component {
     render() {
         return (
         <div className="video-player">
-            <button className="video-player-close" type="button" onClick={this.props.closeModal}>close</button>
+            <button className="btn video-player-close" type="button" onClick={this.props.closeModal}>X</button>
             <div className="video-player-video">
                 <video controls>
                     <source src={this.props.src}></source>

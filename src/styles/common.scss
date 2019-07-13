@@ -2,9 +2,9 @@
 
 .widget {
     padding: 15px;
-    border: 1px solid $color-dark-grey;
     margin: 10px;
     border-radius: 10px;
+    box-shadow: 0 0px 18px 0px $color-grey;
 }
 
 .modal {
@@ -17,4 +17,40 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.input-container {
+    padding: 15px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 0px 5px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $color-dark-grey;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: 0;
+}
+
+.btn-container {
+    text-align: end;
+    padding: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    color: $color-blue;
+    background-color: $color-white;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: $font-size-smaller;
+    outline: none;
+    cursor: pointer;
+}
+
+.error-message {
+    color: $color-red;
+    font-size: $font-size-smallest;
 }

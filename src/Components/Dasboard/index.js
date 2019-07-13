@@ -8,13 +8,15 @@ import './dashboard.scss';
 
 class Dashboard extends React.Component {
     render() {
+        if(!this.props.isRegistered) {
+            window.location.hash="/"
+        }
         return (
             <div className="dashboard">
                 <Graph></Graph>
                 <CameraFeed></CameraFeed>
                 <Video></Video>
                 <Logger></Logger>
-
                 <VideoStreamer></VideoStreamer>
             </div>
         )

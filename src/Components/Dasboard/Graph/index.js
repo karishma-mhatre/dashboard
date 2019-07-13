@@ -3,6 +3,7 @@ import { ChartTemplate } from '../ChartTemplate';
 import { Line } from "react-chartjs-2";
 import './graph.scss';
 
+const maxRetries = 10;
 class Graph extends React.Component {
     constructor(props) {
         super(props);
@@ -11,6 +12,8 @@ class Graph extends React.Component {
             numbers: [],
             numberCount: 0
         }
+
+        this.currentRetry =  0
     }
 
     config = new ChartTemplate("line", {
@@ -42,39 +45,40 @@ class Graph extends React.Component {
             }
             this.config.data.labels.push(this.state.numberCount);
         }
-        console.log(numArray);
-        console.log(this.config.data.labels);
-        console.log(this.config.data.datasets[0].data);
     }
 
     componentDidMount = () => {
         this.ws.onopen = (event) => {
-            console.log(event);
+            console.log("established connection");
         }
 
-        this.ws.onmessage = (event) => {;
+        this.ws.onerror = (event) => {
+            if(this.currentRetry < maxRetries) {
+                this.currentRetry++;
+                this.ws = new WebSocket("ws://35.154.106.116:8001/");
+            }
+        }
+
+        this.ws.onmessage = (event) => {
             var reader = new FileReader();
             reader.addEventListener("loadend", () => {
-                // reader.result contains the contents of blob as a typed array
                 let nums = this.state.numbers;
                 nums.push(+reader.result[0]);
                 let numCount = this.state.numberCount;
                 numCount++;
-                console.log("result", nums.length);
 
                 if(nums.length > 10) {
                     nums.shift();
                 }
                 
                 this.setState({numberCount: numCount,
-                numbers: nums});
+                                numbers: nums});
             });
             reader.readAsText(event.data);
         }
     }
 
     render() {
-        console.log("render");
         this.createGraphConfig(this.state.numbers);
         return (
             <div className="widget graph">

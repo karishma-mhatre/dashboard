@@ -1,0 +1,44 @@
+
+@import '../../styles/varaibles.scss';
+
+.login {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    &-title {
+        font-weight: $font-weight-heaviest;
+        font-size: $font-size-large;
+        padding: 15px;
+        color: $color-blue;
+    }
+
+    &-form {
+        min-width: 350px;
+    }
+
+    &-error {
+        color: $color-blue;
+        font-size: $font-size-smaller;
+        padding: 10px;
+    }
+
+    .btn {
+        color: $color-blue;
+        border-color: $color-blue;
+    }
+}
+
+.input-label {
+    display: block;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+    .login-form {
+        width: 100%;
+    }
+}

@@ -23,7 +23,7 @@ class App extends React.Component{
       <div className="App">
         <Router>
           <Route exact path="/dashboard" render={(props) => (
-            <Dashboard {...props} {...this.state.isRegistered}></Dashboard>)}></Route>
+            <Dashboard {...props} isRegistered = {this.state.isRegistered}></Dashboard>)}></Route>
           <Route exact path="/" render={(props) => (
             <Registration {...props} {...this.state.isRegistered} register={this.register}></Registration>)}></Route>
         </Router>

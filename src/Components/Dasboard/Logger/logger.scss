@@ -1,5 +1,13 @@
+@import '../../../styles/varaibles.scss';
+
 .logger {
     overflow: scroll;
     grid-area: logger;
     height: 300px;
+
+    &-message {
+        color: $color-blue;
+        padding: 5px 0;
+        font-size: $font-size-small;
+    }
 }

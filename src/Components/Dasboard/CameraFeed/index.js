@@ -15,7 +15,7 @@ class Graph extends React.Component {
 
     componentDidMount = () =>{
         this.ws.onopen = (event) => {
-            console.log(event);
+            console.log("established connection");
         }
 
         this.ws.onerror = (event) => {
@@ -28,7 +28,6 @@ class Graph extends React.Component {
         this.ws.onmessage = (event) => {
             var reader = new FileReader();
             reader.addEventListener("loadend", () => {
-                // reader.result contains the contents of blob as a typed array
                 let x = "data:image/jpeg;base64," + reader.result
                 this.setState({src: x});
             });
@@ -39,7 +38,14 @@ class Graph extends React.Component {
     render() {
         return (
             <div className="widget camera">
-                <img src={this.state.src}></img>
+                {
+                    this.state.src &&
+                    <img src={this.state.src}></img>
+                }
+                {
+                    !this.state.src &&
+                    <div>Establishing connection.</div>
+                }
             </div>
         )
     }

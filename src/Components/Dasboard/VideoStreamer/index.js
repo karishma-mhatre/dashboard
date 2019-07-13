@@ -1,10 +1,12 @@
 import React from 'react';
+import './video-streamer.scss';
 
 class VideoStreamer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            src: ""
+            src: "",
+            error: ""
         }
     }
 
@@ -14,12 +16,24 @@ class VideoStreamer extends React.Component {
       .then((data) => {
           console.log(data);
       })
-      .catch((error) => {console.log(error)})
+      .catch((error) => {
+          this.setState({error: "Couldnt load data!"})
+      })
   }
 
     render() {
-        return (<div>
-                </div>)
+        return (
+            <div className="widget video-streamer">
+                {
+                    this.state.error && 
+                    <div className="error-message">{this.state.error}</div>
+                }
+                {
+                    this.state.src &&
+                    <img src={this.state.src}></img>
+                }
+            </div>
+        )
     }
 }
 
