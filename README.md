@@ -1,10 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Description
+Description
 
 The app contains a registraion page and a dasboard which subscribes to data from multiple sources.
 
-#Instructions to start the app
+Instructions to start the app
 
     1. Use git clone or download the zip.
     
@@ -18,7 +18,7 @@ The app contains a registraion page and a dasboard which subscribes to data from
     
     6. Browse to http://localhost:3000.
 
-#Improvements required
+Improvements required
 
     1. A highher order component could be create and used for WebSocket connection to avoid websocket code repeatation at component level.
     
